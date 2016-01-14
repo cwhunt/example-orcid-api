@@ -8,7 +8,7 @@ The following environment variables are assumed:
 * SITE_URL - the web site that has the authorization link 
 * OAUTH_HOST - pub.orcid.org (Public API), pub.sandbox.orcid.org (Public API Sandbox), api.orcid.org (Member API), or api.sandbox.orcid.org (Member API Sandbox)
 * OAUTH_PATH - "/oauth/token"
-* REDIRECT_URI - https://where-this-application-is-hosted/auth
+* REDIRECT_URI - https://example-orcid-api.herokuapp.com/auth (update this if you set up your own)
 
 ## Instructions
 1. Make sure you have [node.js](http://nodejs.org/) and [git](http://git-scm.com/) installed on your machine.
@@ -20,8 +20,12 @@ The following environment variables are assumed:
 ## Hosting
 To deploy this code to Heroku:
 
-1. heroku login (create account if necessary)
+1. heroku login example-orcid-api (choose your own since this is taken)
 2. heroku create (optional app name)
 3. git push heroku master
 4. heroku ps:scale web=1
 5. Set environment variables with "heroku config:set"
+
+## Demo
+
+Check out a [Sandbox Demo](https://example-orcid.firebaseapp.com/).
