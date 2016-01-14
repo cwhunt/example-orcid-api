@@ -1,0 +1,10 @@
+{
+  "name": "example-orcid-api",
+  "version": "0.0.1",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "morgan": "^1.6.1"
+  }
+}
