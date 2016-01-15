@@ -76,6 +76,12 @@ router.get('/', function(req, res, next) {
 			{
 				redirect_uri = config.redirect_uri;
 			}
+			// test1
+			redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/#/auth';
+			// test2
+			// redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/%23/auth';
+			// test3
+			// redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/%2523/auth';
 			var params = {
 				client_id: config.client_id,
 				client_secret: config.client_secret,
