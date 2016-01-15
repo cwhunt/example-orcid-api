@@ -95,7 +95,10 @@ router.get('/', function(req, res, next) {
 					var url = site_url + '?name=' + data.name + 
 						'&access_token=' + data.access_token + 
 						'&token_type=' + data.token_type +
-						'&orcid=' + data.orcid; 
+						'&orcid=' + data.orcid;
+					// TODO:
+					// Add security checking here.
+					// Don't send via HTTP.
 					res.redirect(url);
 				}
 				else {

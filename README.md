@@ -5,7 +5,7 @@ The Example ORCID Application API is an example API used by example web applicat
 The following environment variables are assumed:
 
 * CLIENT_ID, CLIENT_SECRET - available at [ORCID Developer Tools](https://sandbox.orcid.org/developer-tools)
-* SITE_URL - the web site that has the authorization link 
+* SITE_URL - the web site to redirect to (can be overridden by the client specifying a site_url parameter in the authorization link)
 * OAUTH_HOST - pub.orcid.org (Public API), pub.sandbox.orcid.org (Public API Sandbox), api.orcid.org (Member API), or api.sandbox.orcid.org (Member API Sandbox)
 * OAUTH_PATH - "/oauth/token"
 * REDIRECT_URI - https://example-orcid-api.herokuapp.com/auth (update this if you set up your own)
