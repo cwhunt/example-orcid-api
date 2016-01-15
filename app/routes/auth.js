@@ -86,7 +86,6 @@ router.get('/', function(req, res, next) {
 				grant_type: 'authorization_code',
 				redirect_uri: redirect_uri
 			}
-			console.log(params);
 			getToken(params, function(data) {
 				if (data.hasOwnProperty('error-desc')) {
 					res.json({error: data['error-desc'].value });
