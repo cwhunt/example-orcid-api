@@ -72,8 +72,7 @@ router.get('/', function(req, res, next) {
 			var site_url;
 			if (req.query.site_url) {
 				var site_url = req.query.site_url;
-				site_url = site_url.replace('#', '%23');
-				redirect_uri = config.redirect_uri + "?site_url=" + site_url;
+				redirect_uri = config.redirect_uri + "?site_url=" + site_url.replace('#', '%23');
 			}
 			else 
 			{
