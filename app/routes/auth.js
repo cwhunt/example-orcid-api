@@ -41,9 +41,6 @@ function getToken(params, next) {
 }
 
 router.get('/', function(req, res, next) {
-	console.log('baseUrl', req.baseUrl);
-	console.log('originalUrl', req.originalUrl);
-	console.log('site_url', req.query.site_url);
 	if (!config.client_secret || !config.client_id ||
 		!config.redirect_uri || !config.site_url ||
 		!config.oauth_host || !config.oauth_path) {
@@ -93,7 +90,10 @@ router.get('/', function(req, res, next) {
 				}
 				else if (data.access_token && data.token_type 
 					&& data.orcid && data.name) {
-					var url = config.site_url + '/#/auth?name=' + data.name;
+					var url = config.site_url + 'name=' + data.name + 
+						'&access_token=' + data.access_token + 
+						'&token_type=' + data.token_type +
+						'&orcid=' + data.orcid; 
 					res.redirect(url);
 				}
 				else {
