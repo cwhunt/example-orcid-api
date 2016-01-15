@@ -69,19 +69,17 @@ router.get('/', function(req, res, next) {
 		if (req.query.code) {
 			var code = req.query.code;
 			var redirect_uri;
+			var site_url;
 			if (req.query.site_url) {
-				redirect_uri = config.redirect_uri + "?site_url=" + req.query.site_url;
+				var site_url = req.query.site_url;
+				site_url = site_url.replace('#', '%23');
+				redirect_uri = config.redirect_uri + "?site_url=" + site_url;
 			}
 			else 
 			{
 				redirect_uri = config.redirect_uri;
+				site_url = config.site_url;
 			}
-			// test1
-			// redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/#/auth';
-			// test2
-			redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/%23/auth';
-			// test3
-			// redirect_uri = 'https://example-orcid-api.herokuapp.com/auth?site_url=https://example-orcid.firebaseapp.com/%2523/auth';
 			var params = {
 				client_id: config.client_id,
 				client_secret: config.client_secret,
@@ -96,7 +94,7 @@ router.get('/', function(req, res, next) {
 				}
 				else if (data.access_token && data.token_type 
 					&& data.orcid && data.name) {
-					var url = config.site_url + 'name=' + data.name + 
+					var url = site_url + '?name=' + data.name + 
 						'&access_token=' + data.access_token + 
 						'&token_type=' + data.token_type +
 						'&orcid=' + data.orcid; 
