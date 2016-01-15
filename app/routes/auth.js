@@ -69,12 +69,20 @@ router.get('/', function(req, res, next) {
 	else {
 		if (req.query.code) {
 			var code = req.query.code;
+			var redirect_uri;
+			if (req.query.site_url) {
+				redirect_uri = config.redirect_uri + "?site_url=" + req.query.site_url;
+			}
+			else 
+			{
+				redirect_uri = config.redirect_uri;
+			}
 			var params = {
 				client_id: config.client_id,
 				client_secret: config.client_secret,
 				code: code,
 				grant_type: 'authorization_code',
-				redirect_uri: config.redirect_uri
+				redirect_uri: redirect_uri
 			}
 			console.log(params);
 			getToken(params, function(data) {
