@@ -41,6 +41,8 @@ function getToken(params, next) {
 }
 
 router.get('/', function(req, res, next) {
+	console.log('path', req.path);
+	console.log('query', req.query);
 	console.log('site_url', req.query.site_url);
 	if (!config.client_secret || !config.client_id ||
 		!config.redirect_uri || !config.site_url ||
